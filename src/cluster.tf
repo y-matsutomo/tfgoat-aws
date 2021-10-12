@@ -69,5 +69,8 @@ resource "aws_eks_cluster" "tfgoat" {
     aws_iam_role_policy_attachment.tfgoat-cluster-AmazonEKSVPCResourceController,
     aws_iam_role_policy_attachment.tfgoat-cluster-AmazonEKSVPCResourceController,
   ]
+  # [Shisho]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster#enabled_cluster_log_types
+  enabled_cluster_log_types = ["api", "authenticator", "audit", "scheduler", "controllerManager"]
 }
+
 
