@@ -35,9 +35,8 @@ resource "aws_security_group" "tfgoat-cluster" {
   ingress {
     from_port   = 0
     to_port     = 0
-    protocol    = "-1"
-    # [Shisho]: You can ignore this report by adding the following comment:
-    # shisho: mark-as-intended aws-vpc-ensure-sg-ingress-cidr-is-well-configured
+    protocol    = "-1"            
+    # [Shisho]: remove `0.0.0.0/0` from the following line and add appropriate IP ranges
     cidr_blocks = [ "0.0.0.0/0" ]
   }
   egress {
