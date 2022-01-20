@@ -38,6 +38,7 @@ resource "aws_security_group" "tfgoat-cluster" {
     protocol    = "-1"            
     # [Shisho]: remove `0.0.0.0/0` from the following line and add appropriate IP ranges
     cidr_blocks = [ "0.0.0.0/0" ]
+    description = "<write as you like>"
   }
   egress {
     from_port   = 0
@@ -46,6 +47,7 @@ resource "aws_security_group" "tfgoat-cluster" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
 
 
 resource "aws_security_group_rule" "tfgoat-cluster-ingress-workstation-https" {
