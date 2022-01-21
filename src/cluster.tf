@@ -33,9 +33,9 @@ resource "aws_security_group" "tfgoat-cluster" {
   description = "Cluster communication with worker nodes"
   vpc_id      = aws_vpc.tfgoat.id
   ingress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"            
+    protocol = "<set as you like (e.g. tcp)>"
+    from_port = 1337 # TODO: set as you like
+    to_port = 1337 # TODO: set as you like
     # [Shisho]: remove `0.0.0.0/0` from the following line and add appropriate IP ranges
     cidr_blocks = [ "0.0.0.0/0" ]
   }
@@ -46,6 +46,7 @@ resource "aws_security_group" "tfgoat-cluster" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
 
 
 resource "aws_security_group_rule" "tfgoat-cluster-ingress-workstation-https" {
