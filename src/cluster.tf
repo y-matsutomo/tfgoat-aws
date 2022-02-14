@@ -44,8 +44,10 @@ resource "aws_security_group" "tfgoat-cluster" {
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
+    description = "<write as you like>"
   }
 }
+
 
 
 resource "aws_security_group_rule" "tfgoat-cluster-ingress-workstation-https" {
