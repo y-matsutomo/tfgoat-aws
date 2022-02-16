@@ -55,7 +55,9 @@ resource "aws_security_group_rule" "tfgoat-cluster-ingress-workstation-https" {
   security_group_id = aws_security_group.tfgoat-cluster.id
   to_port           = 443
   type              = "ingress"
+  description = "<write as you like>"
 }
+
 
 resource "aws_eks_cluster" "tfgoat" {
   name     = "${local.prefix}-tfgoat-cluster"
