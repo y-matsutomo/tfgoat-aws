@@ -49,13 +49,15 @@ resource "aws_security_group" "tfgoat-cluster" {
 
 
 resource "aws_security_group_rule" "tfgoat-cluster-ingress-workstation-https" {
-  cidr_blocks       = ["0.0.0.0/0"]
+  type = "ingress"
   from_port         = 443
   protocol          = "tcp"
   security_group_id = aws_security_group.tfgoat-cluster.id
   to_port           = 443
-  type              = "ingress"
+  # [Shisho]: remove `0.0.0.0/0` from the following line and add appropriate IP ranges
+  cidr_blocks = [ "0.0.0.0/0" ]
 }
+
 
 resource "aws_eks_cluster" "tfgoat" {
   name     = "${local.prefix}-tfgoat-cluster"
